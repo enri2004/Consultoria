@@ -50,7 +50,7 @@
 .portada-content h1 {
   max-width: 740px;
   margin: 0 auto;
-  font-size: 56px;
+  font-size: clamp(36px, 5vw, 56px);
   font-weight: 760;
   letter-spacing: 0;
   line-height: 1.08;
@@ -168,7 +168,7 @@
 .section-heading h2 {
   margin: 0 0 14px;
   color: var(--ink);
-  font-size: 42px;
+  font-size: clamp(30px, 4vw, 42px);
   font-weight: 760;
   letter-spacing: 0;
   line-height: 1.14;
@@ -403,10 +403,6 @@
     min-height: 610px;
   }
 
-  .portada-content h1 {
-    font-size: 46px;
-  }
-
   .quick-access {
     padding-top: 76px;
     padding-bottom: 76px;
@@ -424,10 +420,6 @@
   .portada-content {
     width: min(100% - 36px, 600px);
     padding: 58px 0 30px;
-  }
-
-  .portada-content h1 {
-    font-size: 36px;
   }
 
   .portada-description {
@@ -483,5 +475,22 @@
   .quick-card {
     min-height: 240px;
     padding: 28px;
+  }
+}
+
+@media (max-width: 380px) {
+  .portada-content {
+    width: min(100% - 28px, 600px);
+    padding-top: 44px;
+  }
+
+  .quick-access,
+  .cases-section {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .quick-card {
+    padding: 24px;
   }
 }

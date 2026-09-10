@@ -50,7 +50,7 @@
 .case-chart-header p { margin: 0; }
 .case-chart-header label { display: grid; gap: 5px; font-weight: 700; }
 .case-chart-header select { border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; color: var(--ink); font-size: 11px; }
-.case-chart { height: 280px; margin-top: 14px; }
+.case-chart { height: 280px; margin-top: 14px; overflow: hidden; }
 .case-chart svg { overflow: visible; }
 .case-chart .recharts-cartesian-grid-horizontal line { stroke: #edf1f6; }
 .case-chart .recharts-xAxis text { fill: #8a98aa; font-size: 10px; }
@@ -125,4 +125,9 @@
     .success-summary { padding: 0 14px 18px; }
     .success-summary strong { font-size: 16px; }
     .success-metrics { grid-template-columns: 1fr; }
+    .success-summary { gap: 8px; }
+    .success-summary strong { font-size: 15px; }
+    .success-summary span { font-size: 9px; }
+    .case-chart { height: 240px; }
+    .case-chart-legend { flex-wrap: wrap; gap: 8px 14px; }
 }

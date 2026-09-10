@@ -9,7 +9,7 @@
 }
 
 .services-content {
-  padding: 96px clamp(24px, 8vw, 120px);
+  padding: 96px clamp(18px, 8vw, 120px);
 }
 
 .services-carousel {
@@ -144,11 +144,19 @@
   }
 
   .service-card {
-    min-height: 440px;
+    min-height: 0;
     padding: 24px;
   }
 
   .service-card p {
     min-height: 0;
+  }
+
+  .service-card h2 {
+    font-size: 23px;
+  }
+
+  .service-card ul {
+    font-size: 13px;
   }
 }

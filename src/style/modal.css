@@ -9,7 +9,7 @@
 @keyframes aparecer { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 560px) {
-  .modal-overlay { align-items: flex-end; padding: 12px; }
+  .modal-overlay { align-items: flex-end; padding: 8px; }
   .modal-container, .modal-contenido { max-height: calc(100vh - 24px); border-radius: 18px; }
   .modal-header { min-height: 64px; padding: 14px 18px; }
   .modal-header h2 { font-size: 21px; }

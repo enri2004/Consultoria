@@ -139,6 +139,7 @@
 
 .contact-form input,
 .contact-form textarea {
+  box-sizing: border-box;
   width: 100%;
   margin-bottom: 14px;
   border: 1px solid var(--line);
@@ -187,6 +188,11 @@
     gap: 24px;
     padding: 22px;
   }
+
+  .contact-information h2,
+  .contact-form h2 {
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -205,5 +211,15 @@
 
   .contact-map {
     height: 240px;
+  }
+
+  .contact-detail {
+    align-items: flex-start;
+    font-size: 14px;
+  }
+
+  .contact-detail a,
+  .contact-address p {
+    overflow-wrap: anywhere;
   }
 }
