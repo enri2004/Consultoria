@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect } from "react";
 import Vista from "./Home/Vista.js";
 import Contacto from "./Home/Contacto.js";
 import Nosotros from "./components/Nosotros.js";
@@ -7,6 +8,22 @@ import Servicios from "./Home/Servicios.js";
 
 function App() {
   const currentPath = window.location.pathname;
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (!hash) return;
+
+      window.requestAnimationFrame(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
 
   return (
     <div className="App">

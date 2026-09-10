@@ -8,6 +8,8 @@ import logo from "../img/logo.png";
 export default function Menuvista() {
     const [modalAbierto, setModalAbierto] = useState(false);
     const [currentLocation, setCurrentLocation] = useState(`${window.location.pathname}${window.location.hash}`);
+    const currentPath = window.location.pathname;
+    const isHome = currentPath === "/";
 
     useEffect(() => {
         const updateLocation = () => setCurrentLocation(`${window.location.pathname}${window.location.hash}`);
@@ -28,6 +30,11 @@ export default function Menuvista() {
         return currentLocation === path;
     };
 
+    const serviciosHref = isHome ? "/#servicios" : "/Servicios";
+    const nosotrosHref = isHome ? "/#nosotros" : "/Nosotros";
+    const casosHref = "/#casos-de-exito";
+    const contactoHref = isHome ? "/#contacto" : "/Contacto";
+
     return (
         <nav className="Navid">
 
@@ -40,11 +47,11 @@ export default function Menuvista() {
             {/* OPCIONES */}
             <div className="Menu">
                 <a className={isActive("/") ? "active" : ""} href="/">Inicio</a>
-                <a className={isActive("/", "#servicios") ? "active" : ""} href="/#servicios">Servicios</a>
-                <a className={isActive("/", "#nosotros") ? "active" : ""} href="/#nosotros">Nosotros</a>
-                <a className={isActive("/", "#casos-de-exito") ? "active" : ""} href="/#casos-de-exito">Casos de éxito</a>
+                <a className={isActive("/Servicios") || isActive("/", "#servicios") ? "active" : ""} href={serviciosHref}>Servicios</a>
+                <a className={isActive("/Nosotros") || isActive("/", "#nosotros") ? "active" : ""} href={nosotrosHref}>Nosotros</a>
+                <a className={isActive("/", "#casos-de-exito") ? "active" : ""} href={casosHref}>Casos de éxito</a>
                 <a className={isActive("/Blog") ? "active" : ""} href="/Blog">Blog</a>
-                <a className={isActive("/", "#contacto") ? "active" : ""} href="/#contacto">Contacto</a>
+                <a className={isActive("/Contacto") || isActive("/", "#contacto") ? "active" : ""} href={contactoHref}>Contacto</a>
             </div>
 
             {/* BOTONES */}
