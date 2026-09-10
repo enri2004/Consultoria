@@ -1,0 +1,17 @@
+.modal-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(19, 43, 84, 0.62); }
+.modal-container, .modal-contenido { width: min(100%, 920px); max-height: calc(100vh - 48px); overflow: auto; border: 1px solid rgba(255, 255, 255, 0.75); border-radius: 22px; background: #f1f5fa; box-shadow: 0 28px 70px rgba(19, 43, 84, 0.3); animation: aparecer 180ms ease-out; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; min-height: 74px; padding: 18px 28px; border-bottom: 1px solid #dce5ef; background: #f8fafc; }
+.modal-header h2 { margin: 0; color: var(--teal-dark); font-size: 25px; font-weight: 800; letter-spacing: -.2px; }
+.modal-close-button, .modal-cerrar { display: inline-grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink-soft); cursor: pointer; font-size: 18px; line-height: 1; }
+.modal-close-button:hover, .modal-cerrar:hover { border-color: var(--teal); background: var(--teal); color: #fff; }
+.modal-content, .modal-body { padding: 28px; }
+
+@keyframes aparecer { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 560px) {
+  .modal-overlay { align-items: flex-end; padding: 12px; }
+  .modal-container, .modal-contenido { max-height: calc(100vh - 24px); border-radius: 18px; }
+  .modal-header { min-height: 64px; padding: 14px 18px; }
+  .modal-header h2 { font-size: 21px; }
+  .modal-content, .modal-body { padding: 22px 18px 24px; }
+}

@@ -1,0 +1,172 @@
+.about-page {
+  width: 100%;
+  background: var(--surface);
+}
+
+.about-frame {
+  width: 100%;
+}
+
+.about-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 96px clamp(24px, 8vw, 120px);
+  color: var(--ink);
+  text-align: center;
+}
+
+.about-copy {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 42px auto 0;
+}
+
+.about-pillars article {
+  min-height: 185px;
+  padding: 28px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--ink-soft);
+}
+
+.about-pillars span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin: 0 auto 16px;
+  border-radius: 8px;
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.about-pillars h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 760;
+}
+
+.about-pillars p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.team-title {
+  margin: 72px 0 24px;
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.team-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+}
+
+.team-card strong,
+.team-card span {
+  display: block;
+}
+
+.team-card strong {
+  padding: 16px 16px 2px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 760;
+}
+
+.team-card span {
+  padding: 0 16px 16px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .about-content {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .about-pillars {
+    gap: 14px;
+  }
+
+  .team-grid {
+    gap: 14px;
+  }
+
+  .team-card strong {
+    font-size: 14px;
+  }
+
+  .team-card span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-copy {
+    font-size: 16px;
+  }
+
+  .about-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .about-pillars article {
+    min-height: 0;
+  }
+
+  .team-title {
+    margin-top: 56px;
+    font-size: 26px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team-card strong {
+    padding: 12px 12px 2px;
+    font-size: 13px;
+  }
+
+  .team-card span {
+    padding: 0 12px 12px;
+    font-size: 12px;
+  }
+}

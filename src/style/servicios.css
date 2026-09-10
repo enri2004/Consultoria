@@ -1,0 +1,154 @@
+.services-page,
+.services-embedded {
+  width: 100%;
+  background: var(--surface-muted);
+}
+
+.services-frame {
+  width: 100%;
+}
+
+.services-content {
+  padding: 96px clamp(24px, 8vw, 120px);
+}
+
+.services-carousel {
+  width: 100%;
+  margin: 0 auto;
+  padding: 4px 0 52px;
+  overflow: hidden;
+}
+
+.services-swiper {
+  width: 100%;
+  padding: 14px 0 52px;
+}
+
+.services-swiper .swiper-slide {
+  height: auto;
+  opacity: 0.72;
+  transition: opacity 180ms ease;
+}
+
+.services-swiper .swiper-slide-active {
+  opacity: 1;
+}
+
+.service-card {
+  display: flex;
+  min-height: 470px;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+.service-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  margin-bottom: 22px;
+  border-radius: 8px;
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.service-card h2 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 26px;
+  font-weight: 760;
+  line-height: 1.2;
+}
+
+.service-card p {
+  min-height: 72px;
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.service-card h3 {
+  margin: 16px 0 7px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.service-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.service-card button,
+.contact-form button,
+.blog-submit,
+.blog-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--teal);
+  border-radius: 6px;
+  padding: 0 17px;
+  background: var(--teal);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.service-card button {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.service-card button:hover,
+.contact-form button:hover,
+.blog-submit:hover,
+.blog-card button:hover {
+  border-color: var(--teal-dark);
+  background: var(--teal-dark);
+  transform: translateY(-1px);
+}
+
+.services-swiper .swiper-button-next,
+.services-swiper .swiper-button-prev {
+  color: var(--teal);
+}
+
+.services-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--ink-soft);
+}
+
+.services-swiper .swiper-pagination-bullet-active {
+  background: var(--teal);
+}
+
+@media (max-width: 700px) {
+  .services-content {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .service-card {
+    min-height: 440px;
+    padding: 24px;
+  }
+
+  .service-card p {
+    min-height: 0;
+  }
+}

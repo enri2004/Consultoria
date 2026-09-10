@@ -1,0 +1,45 @@
+.appointment-flow { color: var(--ink); max-width: 760px; margin: 0 auto; }
+
+.appointment-steps { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.appointment-step { display: flex; align-items: center; gap: 9px; color: #94a3b8; font-size: 12px; font-weight: 800; white-space: nowrap; }
+.appointment-step span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 50%; background: #e5eaf1; color: #718096; font-size: 12px; }
+.appointment-step p { margin: 0; }
+.appointment-step-active { color: var(--teal-dark); }
+.appointment-step-active span { background: var(--teal); color: #fff; }
+.appointment-step-line { height: 1px; flex: 1; background: var(--line); }
+
+.appointment-form { display: grid; gap: 16px; padding: 24px; border: 1px solid #e3e9f1; border-radius: 18px; background: #fff; box-shadow: 0 12px 28px rgba(30, 48, 75, .08); }
+.appointment-field { min-width: 0; margin: 0; border: 0; padding: 0; }
+.appointment-field label, .appointment-field legend { display: block; margin: 0 0 7px; color: var(--ink); font-size: 12px; font-weight: 800; }
+.appointment-field select, .appointment-field input { width: 100%; min-height: 40px; border: 1px solid #dce3ed; border-radius: 8px; padding: 0 11px; background: #f8fafc; color: var(--ink); font-size: 12px; }
+.appointment-field select { cursor: pointer; }
+.appointment-field input:focus, .appointment-field select:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(75, 145, 212, 0.18); }
+
+.appointment-modality-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.appointment-modality-options label { position: relative; display: grid; min-height: 40px; place-items: center; margin: 0; border: 1px solid transparent; border-radius: 8px; background: #f1f4f8; color: var(--ink-soft); cursor: pointer; font-size: 11px; font-weight: 700; text-align: center; }
+.appointment-modality-options input { position: absolute; width: 1px; min-height: 1px; opacity: 0; }
+.appointment-modality-options label:has(input:checked) { border-color: var(--teal); background: var(--teal-pale); color: var(--teal-dark); }
+.appointment-modality-options label:has(input:focus-visible) { outline: 3px solid rgba(75, 145, 212, 0.28); outline-offset: 2px; }
+.appointment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+
+.appointment-form > button, .appointment-confirmation button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid #0967d5; border-radius: 22px; background: #0967d5; color: #fff; cursor: pointer; font-size: 12px; font-weight: 800; box-shadow: 0 8px 16px rgba(9, 103, 213, .2); }
+.appointment-form > button:hover, .appointment-confirmation button:hover { border-color: var(--teal-dark); background: var(--teal-dark); transform: translateY(-1px); }
+
+.appointment-confirmation { display: flex; min-height: 360px; flex-direction: column; align-items: center; justify-content: center; padding: 42px 24px; border: 1px solid #e3e9f1; border-radius: 18px; background: #fff; box-shadow: 0 12px 28px rgba(30, 48, 75, .08); text-align: center; }
+.confirmation-check { display: grid; width: 58px; height: 58px; place-items: center; margin-bottom: 20px; border: 2px solid #72c89d; border-radius: 50%; color: #4caf82; font-size: 31px; font-weight: 500; }
+.appointment-kicker { margin: 0 0 8px; color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+.appointment-confirmation h3 { margin: 0; color: var(--ink); font-size: 28px; line-height: 1.2; }
+.appointment-confirmation > p:not(.appointment-kicker) { max-width: 360px; margin: 14px 0 26px; color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+.appointment-confirmation button { min-width: 180px; }
+
+@media (max-width: 560px) {
+  .modal-content, .modal-body { padding: 16px; }
+  .appointment-form { padding: 18px; }
+  .appointment-steps { gap: 8px; }
+  .appointment-step { gap: 6px; font-size: 12px; }
+  .appointment-step span { width: 24px; height: 24px; font-size: 12px; }
+  .appointment-grid, .appointment-modality-options { grid-template-columns: 1fr; }
+  .appointment-grid { gap: 19px; }
+  .appointment-confirmation { min-height: 330px; }
+  .appointment-confirmation h3 { font-size: 25px; }
+}
