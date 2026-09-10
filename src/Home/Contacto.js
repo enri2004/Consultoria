@@ -4,7 +4,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import SendIcon from '@mui/icons-material/Send';
+
 
 
 export default function Contacto({ embedded = false }) {
