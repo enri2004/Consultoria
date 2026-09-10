@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import "../style/Menu.css";
 import AgendarCita from "../Home/Agendarcita";
 import Modal from "../components/Modal";
@@ -7,9 +7,26 @@ import logo from "../img/logo.png";
 
 export default function Menuvista() {
     const [modalAbierto, setModalAbierto] = useState(false);
-    const currentPath = window.location.pathname;
+    const [currentLocation, setCurrentLocation] = useState(`${window.location.pathname}${window.location.hash}`);
 
-    const isActive = (path) => currentPath === path;
+    useEffect(() => {
+        const updateLocation = () => setCurrentLocation(`${window.location.pathname}${window.location.hash}`);
+        window.addEventListener("hashchange", updateLocation);
+        window.addEventListener("popstate", updateLocation);
+
+        return () => {
+            window.removeEventListener("hashchange", updateLocation);
+            window.removeEventListener("popstate", updateLocation);
+        };
+    }, []);
+
+    const isActive = (path, hash = "") => {
+        if (hash) {
+            return currentLocation.endsWith(hash);
+        }
+
+        return currentLocation === path;
+    };
 
     return (
         <nav className="Navid">
@@ -23,11 +40,11 @@ export default function Menuvista() {
             {/* OPCIONES */}
             <div className="Menu">
                 <a className={isActive("/") ? "active" : ""} href="/">Inicio</a>
-                <a className={isActive("/Servicios") ? "active" : ""} href="/#servicios">Servicios</a>
-                <a className={isActive("/Nosotros") ? "active" : ""} href="/#nosotros">Nosotros</a>
-                <a className={isActive("/Casos-de-exito") ? "active" : ""} href="/#casos-de-exito">Casos de éxito</a>
+                <a className={isActive("/", "#servicios") ? "active" : ""} href="/#servicios">Servicios</a>
+                <a className={isActive("/", "#nosotros") ? "active" : ""} href="/#nosotros">Nosotros</a>
+                <a className={isActive("/", "#casos-de-exito") ? "active" : ""} href="/#casos-de-exito">Casos de éxito</a>
                 <a className={isActive("/Blog") ? "active" : ""} href="/Blog">Blog</a>
-                <a className={isActive("/Contacto") ? "active" : ""} href="/#contacto">Contacto</a>
+                <a className={isActive("/", "#contacto") ? "active" : ""} href="/#contacto">Contacto</a>
             </div>
 
             {/* BOTONES */}

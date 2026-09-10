@@ -17,6 +17,12 @@
 html {
   box-sizing: border-box;
   min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
+}
+
+[id] {
+  scroll-margin-top: 82px;
 }
 
 *,
