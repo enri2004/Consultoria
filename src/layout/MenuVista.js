@@ -7,7 +7,7 @@ import AgendarCita from "../Home/Agendarcita";
 import Modal from "../components/Modal";
 import logo from "../img/logo.png";
 
-
+//coregir el botton 
 
 export default function Menuvista() {
     const [modalAbierto, setModalAbierto] = useState(false);
