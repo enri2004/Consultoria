@@ -1,5 +1,7 @@
 import React,{useState} from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, //useNavigate
+
+ } from "react-router-dom";
 import "../style/Menu.css";
 import AgendarCita from "../Home/Agendarcita";
 import Modal from "../components/Modal";
@@ -10,7 +12,7 @@ import logo from "../img/logo.png";
 export default function Menuvista() {
     const [modalAbierto, setModalAbierto] = useState(false);
     const location = useLocation();
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const currentLocation = `${location.pathname}${location.hash}`;
     const currentPath = location.pathname;
     const isHome = currentPath === "/";

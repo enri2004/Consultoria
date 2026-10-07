@@ -56,7 +56,7 @@ export default function Home(){
                 </section>
                 <Footer />
             <div  >
-               <a href="https://wa.me/529163480780" > <img src={what} style={{size:100, position:'fixed', bottom:20, right:20, width:"50px", height:"50px"}} /></a>
+               <a href="https://wa.me/529163480780" > <img src={what} alt="WhatsApp" style={{size:100, position:'fixed', bottom:20, right:20, width:"50px", height:"50px"}} /></a>
             </div>
             
             </main>
