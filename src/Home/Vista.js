@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Menuvista from "../layout/MenuVista";
 import Portada from "../components/portada";
 import Contacto from "./Contacto";
@@ -6,6 +7,7 @@ import Servicios from "./Servicios";
 import Nosotros from "../components/Nosotros";
 import Footer from "../components/Footer";
 import CasoExito from "./caso-exito";
+import what from "../img/what.gif";
 
 
 export default function Home(){
@@ -25,13 +27,13 @@ export default function Home(){
                             <span className="quick-icon">+</span>
                             <p>SERVICIOS</p>
                             <h3>Soluciones<br />profesionales</h3>
-                            <a href="/Servicios">Ver todos los servicios <span aria-hidden="true">-&gt;</span></a>
+                            <Link to="/Servicios">Ver todos los servicios <span aria-hidden="true">-&gt;</span></Link>
                         </article>
                         <article className="quick-card quick-card-contact">
                             <span className="quick-icon">&lt;</span>
                             <p>CONTACTO</p>
                             <h3>Hablemos</h3>
-                            <a href="/Contacto">Contactar ahora <span aria-hidden="true">-&gt;</span></a>
+                            <Link to="/Contacto">Contactar ahora <span aria-hidden="true">-&gt;</span></Link>
                         </article>
                     </div>
                     <div id="nosotros" className="page-section page-section-light">
@@ -53,7 +55,12 @@ export default function Home(){
                     </div>
                 </section>
                 <Footer />
+            <div  >
+               <a href="https://wa.me/529163480780" > <img src={what} style={{size:100, position:'fixed', bottom:20, right:20, width:"50px", height:"50px"}} /></a>
+            </div>
+            
             </main>
+
         </div>
     )
 }

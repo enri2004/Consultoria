@@ -1,26 +1,19 @@
-import React,{useEffect, useState} from "react";
+import React,{useState} from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../style/Menu.css";
 import AgendarCita from "../Home/Agendarcita";
 import Modal from "../components/Modal";
 import logo from "../img/logo.png";
 
 
+
 export default function Menuvista() {
     const [modalAbierto, setModalAbierto] = useState(false);
-    const [currentLocation, setCurrentLocation] = useState(`${window.location.pathname}${window.location.hash}`);
-    const currentPath = window.location.pathname;
+    const location = useLocation();
+    const navigate = useNavigate();
+    const currentLocation = `${location.pathname}${location.hash}`;
+    const currentPath = location.pathname;
     const isHome = currentPath === "/";
-
-    useEffect(() => {
-        const updateLocation = () => setCurrentLocation(`${window.location.pathname}${window.location.hash}`);
-        window.addEventListener("hashchange", updateLocation);
-        window.addEventListener("popstate", updateLocation);
-
-        return () => {
-            window.removeEventListener("hashchange", updateLocation);
-            window.removeEventListener("popstate", updateLocation);
-        };
-    }, []);
 
     const isActive = (path, hash = "") => {
         if (hash) {
@@ -39,28 +32,28 @@ export default function Menuvista() {
         <nav className="Navid">
 
             {/* LOGO */}
-            <a className="logo" href="/" aria-label="Ir al inicio de Firme Grupo Fiscal">
+            <Link className="logo" to="/" aria-label="Ir al inicio de Firme Grupo Fiscal">
                 <img className="logo-image" src={logo} alt="Logo de Firme Grupo Fiscal" />
                 <span className="logo-name">Firme Grupo Fiscal</span>
-            </a>
+            </Link>
 
             {/* OPCIONES */}
             <div className="Menu">
-                <a className={isActive("/") ? "active" : ""} href="/">Inicio</a>
-                <a className={isActive("/Servicios") || isActive("/", "#servicios") ? "active" : ""} href={serviciosHref}>Servicios</a>
-                <a className={isActive("/Nosotros") || isActive("/", "#nosotros") ? "active" : ""} href={nosotrosHref}>Nosotros</a>
-                <a className={isActive("/", "#casos-de-exito") ? "active" : ""} href={casosHref}>Casos de éxito</a>
-                <a className={isActive("/Blog") ? "active" : ""} href="/Blog">Blog</a>
-                <a className={isActive("/Contacto") || isActive("/", "#contacto") ? "active" : ""} href={contactoHref}>Contacto</a>
+                <Link className={isActive("/") ? "active" : ""} to="/">Inicio</Link>
+                <Link className={isActive("/Servicios") || isActive("/", "#servicios") ? "active" : ""} to={serviciosHref}>Servicios</Link>
+                <Link className={isActive("/Nosotros") || isActive("/", "#nosotros") ? "active" : ""} to={nosotrosHref}>Nosotros</Link>
+                <Link className={isActive("/", "#casos-de-exito") ? "active" : ""} to={casosHref}>Casos de éxito</Link>
+                <Link className={isActive("/Blog") ? "active" : ""} to="/Blog">Blog</Link>
+                <Link className={isActive("/Contacto") || isActive("/", "#contacto") ? "active" : ""} to={contactoHref}>Contacto</Link>
             </div>
 
             {/* BOTONES */}
             <div className="boton">
                 <button className="agendar" onClick={() => setModalAbierto(true)} > <span className="text1"> Agendar cita </span> </button>
 
-                <button className="iniciar">
-                    <span>Iniciar sesión</span>
-                </button>
+                {/* <button className="iniciar" onClick={() => navigate("/Login")}>
+                    Iniciar sesión
+                </button>*/}
             </div>
 <Modal abierto={modalAbierto} cerrar={() => setModalAbierto(false)} titulo="Agendar cita">
     <AgendarCita />
@@ -69,5 +62,4 @@ export default function Menuvista() {
         
     );
 }
-
 

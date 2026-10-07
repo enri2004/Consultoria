@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Grafica from "../components/grafica";
 import "../style/CasoExito.css";
 
@@ -29,7 +30,7 @@ export default function CasoExito() {
             </div>
             <div className="success-projects-heading">
                 <h3>Proyectos</h3>
-                <a href="#contacto" aria-label="Ver proyectos">-&gt;</a>
+                <Link to="/#contacto" aria-label="Ver proyectos">-&gt;</Link>
             </div>
             <div className="success-projects">
                 <article className="project-card project-card-image">

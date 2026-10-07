@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../style/Footer.css";
 
 const columns = [
@@ -50,7 +51,11 @@ export default function Footer() {
                         <div className="footer-column" key={column.title}>
                             <h2>{column.title}</h2>
                             {column.links.map(([label, href]) => (
-                                <a href={href} key={label}>{label}</a>
+                                href.startsWith("/") || href.startsWith("#") ? (
+                                    <Link to={href} key={label}>{label}</Link>
+                                ) : (
+                                    <a href={href} key={label}>{label}</a>
+                                )
                             ))}
                         </div>
                     ))}
@@ -65,9 +70,9 @@ export default function Footer() {
             <div className="footer-bottom">
                 <span>Copyright © 2024 Consultoría</span>
                 <nav aria-label="Enlaces legales">
-                    <a href="/#contacto">Privacidad</a>
-                    <a href="/#contacto">Términos</a>
-                    <a href="/#contacto">Ayuda</a>
+                    <Link to="/#contacto">Privacidad</Link>
+                    <Link to="/#contacto">Términos</Link>
+                    <Link to="/#contacto">Ayuda</Link>
                 </nav>
             </div>
         </footer>

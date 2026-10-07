@@ -169,6 +169,25 @@
   margin-top: 4px;
 }
 
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.contact-form-status {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contact-form-status-success {
+  color: #147a46;
+}
+
+.contact-form-status-error {
+  color: #b42318;
+}
+
 @media (max-width: 760px) {
   .contact-content {
     padding-top: 72px;

@@ -1,6 +1,9 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 import "../style/Inicio.css"
 export default function Portada(){
+    const navigate = useNavigate();
+
     return(
         <div className="Portada">
             <div className="portada-content">
@@ -10,9 +13,9 @@ export default function Portada(){
                     Convierte tus retos en oportunidades con un equipo que entiende tu negocio.
                 </p>
                 <div className="portada-actions">
-                    <button className="portada-primary" onClick={() => { window.location.href = "/Contacto"; }}>Agendar una cita</button>
-                    <button className="portada-secondary" onClick={() => { window.location.href = "/Servicios"; }}>Conocer nuestros servicios</button>
-                    <button className="portada-secondary" onClick={() => { window.location.href = "/Contacto"; }}>Contactar con nosotros</button>
+                    <button className="portada-primary" onClick={() => navigate("/Contacto")}>Agendar una cita</button>
+                    <button className="portada-secondary" onClick={() => navigate("/Servicios")}>Conocer nuestros servicios</button>
+                    <button className="portada-secondary" onClick={() => navigate("/Contacto")}>Contactar con nosotros</button>
                 </div>
             </div>
             <div className="portada-stats">

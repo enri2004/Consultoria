@@ -161,20 +161,16 @@
   }
 
   .Menu {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 18px;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 14px;
+    overflow: visible;
   }
 
   .Menu a {
     flex: 0 0 auto;
-    padding: 11px 0;
-    font-size: 13px;
-  }
-
-  .iniciar {
-    display: none;
+    padding: 10px 0 9px;
+    font-size: 12px;
   }
 
   .agendar {
@@ -198,8 +194,20 @@
     font-size: 14px;
   }
 
+  .boton {
+    gap: 6px;
+  }
+
+  .iniciar,
   .agendar {
-    padding: 0 9px;
-    font-size: 12px;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-size: 11px;
+  }
+
+  .logo-name {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

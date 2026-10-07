@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -23,6 +24,8 @@ const slider = [
 ];
 
 export default function Carrusel() {
+    const navigate = useNavigate();
+
     return (
         <div className="services-carousel">
             <Swiper
@@ -52,7 +55,7 @@ export default function Carrusel() {
                             <ul>{service.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
                             <h3>¿Qué incluye?</h3>
                             <ul>{service.includes.map((item) => <li key={item}>{item}</li>)}</ul>
-                            <button type="button" onClick={() => { window.location.href = "/Contacto"; }}>Solicitar asesoría</button>
+                            <button type="button" onClick={() => navigate("/Contacto")}>Solicitar asesoría</button>
                         </article>
                     </SwiperSlide>
                 ))}
