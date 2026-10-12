@@ -23,10 +23,10 @@
 
 .logo-image {
   display: block;
-  width: 54px;
+  width: 112px;
   height: 42px;
   border-radius: 6px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .logo-name {
@@ -186,8 +186,8 @@
   }
 
   .logo-image {
-    width: 46px;
-    height: 36px;
+    width: 68px;
+    height: 26px;
   }
 
   .logo-name {

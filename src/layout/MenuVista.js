@@ -34,7 +34,7 @@ export default function Menuvista() {
         <nav className="Navid">
 
             {/* LOGO */}
-            <Link className="logo" to="/" aria-label="Ir al inicio de Firme Grupo Fiscal">
+            <Link className="logo" to="/" aria-label="Ir al inicio de Firme Grupo Fiscal" >
                 <img className="logo-image" src={logo} alt="Logo de Firme Grupo Fiscal" />
                 <span className="logo-name">Firme Grupo Fiscal</span>
             </Link>
@@ -64,4 +64,3 @@ export default function Menuvista() {
         
     );
 }
-

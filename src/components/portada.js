@@ -19,7 +19,7 @@ export default function Portada(){
                 </div>
             </div>
             <div className="portada-stats">
-                <div className="stat"><strong>9+ años</strong><span>de experiencia</span></div>
+                <div className="stat"><strong>30+ años</strong><span>de experiencia</span></div>
                 <div className="stat"><strong>+18</strong><span>clientes</span></div>
                 <div className="stat"><strong>Atención</strong><span>personalizada</span></div>
             </div>
