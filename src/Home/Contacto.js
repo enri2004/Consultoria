@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import Menuvista from '../layout/MenuVista';
 import '../style/Contacto.css';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -19,47 +18,47 @@ export default function Contacto({ embedded = false }) {
     };
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+    event.preventDefault();
 
-        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    setSending(true);
+    setStatus(null);
 
-        if (!serviceId || !templateId || !publicKey) {
-            setStatus({
-                type: 'error',
-                message: 'El envío de correo todavía no está configurado. Inténtalo más tarde o contáctanos por WhatsApp.',
-            });
-            return;
-        }
-
-        setSending(true);
-        setStatus(null);
-
-        try {
-            await emailjs.send(
-                serviceId,
-                templateId,
-                {
-                    from_name: formData.name,
-                    reply_to: formData.email,
-                    phone: formData.phone || 'No proporcionado',
-                    message: formData.message,
+    try {
+        const response = await fetch(
+            `${process.env.REACT_APP_API_URL}/api/contacto`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                { publicKey }
-            );
-            setFormData(initialForm);
-            setStatus({ type: 'success', message: 'Tu mensaje se envió correctamente. Nos pondremos en contacto contigo.' });
-        } catch (error) {
-            console.error('No se pudo enviar el mensaje de contacto:', error);
-            setStatus({
-                type: 'error',
-                message: 'No se pudo enviar tu mensaje. Inténtalo de nuevo o contáctanos por WhatsApp.',
-            });
-        } finally {
-            setSending(false);
+                body: JSON.stringify(formData),
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'No se pudo enviar la solicitud.');
         }
-    };
+
+        setFormData(initialForm);
+
+        setStatus({
+            type: 'success',
+            message: 'Recibimos tu solicitud. Te enviaremos una confirmación por correo.',
+        });
+    } catch (error) {
+        console.error('Error al enviar contacto:', error);
+
+        setStatus({
+            type: 'error',
+            message: error.message || 'No se pudo enviar tu mensaje. Inténtalo nuevamente.',
+        });
+    } finally {
+        setSending(false);
+    }
+};
+
 
     return (
         <div className={`contact-page${embedded ? ' contact-embedded' : ''}`}>
